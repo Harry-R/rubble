@@ -58,10 +58,12 @@ use core::sync::atomic::{compiler_fence, Ordering};
 use pac::{radio::state::STATE_R, RADIO};
 use rubble::config::Config;
 use rubble::link::{
-    advertising, data, Cmd, LinkLayer, RadioCmd, Transmitter, CRC_POLY, MIN_PDU_BUF,
+    advertising, data, filter::AddressFilter, Cmd, LinkLayer, NextUpdate, RadioCmd, Transmitter, CRC_POLY, MIN_PDU_BUF,
 };
 use rubble::phy::{AdvertisingChannel, DataChannel};
 use rubble::time::{Duration, Instant};
+use rubble::beacon::{BeaconScanner, ScanCallback};
+
 
 /// A packet buffer that can hold header and payload of any advertising or data channel packet.
 pub type PacketBuffer = [u8; MIN_PDU_BUF];
@@ -80,6 +82,19 @@ pub struct BleRadio {
     rx_buf: Option<&'static mut PacketBuffer>,
 }
 
+macro_rules! acknowledge_disabled_event {
+    ($radio:expr) => {
+        if $radio.events_disabled.read().bits() == 0 {
+            return None;
+        }
+
+        // "Subsequent reads and writes cannot be moved ahead of preceding reads."
+        compiler_fence(Ordering::Acquire);
+
+        // Acknowledge DISABLED event
+        $radio.events_disabled.reset();
+    };
+}
 impl BleRadio {
     /// Initializes the radio in BLE mode and takes ownership of the RX and TX buffers.
     // TODO: Use type-safe clock configuration to ensure that chip uses ext. crystal
@@ -93,30 +108,30 @@ impl BleRadio {
 
         // The nRF51 requires manually setting the trim values.
         #[cfg(feature = "51")]
-        {
-            if ficr.overrideen.read().ble_1mbit().is_override_() {
-                unsafe {
-                    radio
-                        .override0
-                        .write(|w| w.override0().bits(ficr.ble_1mbit[0].read().bits()));
-                    radio
-                        .override1
-                        .write(|w| w.override1().bits(ficr.ble_1mbit[1].read().bits()));
-                    radio
-                        .override2
-                        .write(|w| w.override2().bits(ficr.ble_1mbit[2].read().bits()));
-                    radio
-                        .override3
-                        .write(|w| w.override3().bits(ficr.ble_1mbit[3].read().bits()));
-                    radio.override4.write(|w| {
-                        w.override4()
-                            .bits(ficr.ble_1mbit[4].read().bits())
-                            .enable()
-                            .set_bit()
-                    });
+            {
+                if ficr.overrideen.read().ble_1mbit().is_override_() {
+                    unsafe {
+                        radio
+                            .override0
+                            .write(|w| w.override0().bits(ficr.ble_1mbit[0].read().bits()));
+                        radio
+                            .override1
+                            .write(|w| w.override1().bits(ficr.ble_1mbit[1].read().bits()));
+                        radio
+                            .override2
+                            .write(|w| w.override2().bits(ficr.ble_1mbit[2].read().bits()));
+                        radio
+                            .override3
+                            .write(|w| w.override3().bits(ficr.ble_1mbit[3].read().bits()));
+                        radio.override4.write(|w| {
+                            w.override4()
+                                .bits(ficr.ble_1mbit[4].read().bits())
+                                .enable()
+                                .set_bit()
+                        });
+                    }
                 }
             }
-        }
 
         // The nRF52/53 do not require setting trim values, but we take the `ficr` reference anyways
         // to have a consistent interface. Silence the unused variable warning:
@@ -142,14 +157,14 @@ impl BleRadio {
             });
 
             #[cfg(not(feature = "52840"))]
-            radio.crccnf.write(|w| {
+                radio.crccnf.write(|w| {
                 // skip address since only the S0, Length, S1 and Payload need CRC
                 // 3 Bytes = CRC24
                 w.skipaddr().set_bit().len().three()
             });
 
             #[cfg(feature = "52840")]
-            radio.crccnf.write(|w| {
+                radio.crccnf.write(|w| {
                 // skip address since only the S0, Length, S1 and Payload need CRC
                 // 3 Bytes = CRC24
                 w.skipaddr().bits(1).len().three()
@@ -304,20 +319,12 @@ impl BleRadio {
     /// Automatically reconfigures the radio according to the `RadioCmd` returned by the BLE stack.
     ///
     /// Returns when the `update` method should be called the next time.
-    pub fn recv_interrupt<C: Config<Transmitter = Self>>(
+    pub fn recv_interrupt<C: Config<Transmitter=Self>>(
         &mut self,
         timestamp: Instant,
         ll: &mut LinkLayer<C>,
     ) -> Option<Cmd> {
-        if self.radio.events_disabled.read().bits() == 0 {
-            return None;
-        }
-
-        // "Subsequent reads and writes cannot be moved ahead of preceding reads."
-        compiler_fence(Ordering::Acquire);
-
-        // Acknowledge DISABLED event:
-        self.radio.events_disabled.reset();
+        acknowledge_disabled_event!(self.radio);
 
         let crc_ok = self.radio.crcstatus.read().crcstatus().is_crcok();
 
@@ -351,6 +358,35 @@ impl BleRadio {
         };
 
         Some(cmd)
+    }
+
+
+    /// Call this when the `RADIO` interrupt fires when using the [`BeaconScanner`].
+    /// [`BeaconScanner`]: ../../rubble/beacon/struct.BeaconScanner.html
+    pub fn recv_beacon_interrupt<C: ScanCallback, F: AddressFilter>(
+        &mut self,
+        scanner: &mut BeaconScanner<C, F>,
+    ) -> Option<&str> {
+        acknowledge_disabled_event!(self.radio);
+
+        // Check CRC
+        let crc_ok = self.radio.crcstatus.read().crcstatus().is_crcok();
+
+        // When we get here, the radio must have transitioned to DISABLED state.
+        assert!(self.state().is_disabled());
+
+        // Parse header
+        let header = advertising::Header::parse(*self.rx_buf.as_ref().unwrap());
+
+        // Check that `payload_length` is in bounds
+        let rx_buf = self.rx_buf.as_ref().unwrap();
+        let pl_lim = cmp::min(2 + usize::from(header.payload_length()), rx_buf.len());
+
+        // Process payload
+        let payload = &rx_buf[2..pl_lim];
+        let cmd = scanner.process_adv_packet(header, payload, crc_ok);
+
+        return None
     }
 
     /// Perform preparations to receive or send on an advertising channel.
