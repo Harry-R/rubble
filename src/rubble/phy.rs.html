@@ -144,6 +144,13 @@
 <span id="144">144</span>
 <span id="145">145</span>
 <span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Physical layer interactions.</span>
 <span class="doccomment">//!</span>
@@ -197,7 +204,14 @@
         }
     }
 
-    <span class="doccomment">/// Returns the RF channel corresponding to this advertising channel index.</span>
+    <span class="doccomment">/// Returns the channel index.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Channels 37, 38 and 39 are used for advertising.</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">channel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u8</span> {
+        <span class="self">self</span>.<span class="number">0</span>
+    }
+
+    <span class="doccomment">/// Returns the physical RF channel corresponding to this advertising channel index.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// RF channels 0, 12 and 39 are used for advertising.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rf_channel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u8</span> {
@@ -292,4 +306,4 @@
     <span class="kw">fn</span> <span class="ident">transmit</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">buf</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">u8</span>], <span class="ident">freq</span>: <span class="ident">u16</span>);
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

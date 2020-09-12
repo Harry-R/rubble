@@ -101,26 +101,12 @@
 <span id="101">101</span>
 <span id="102">102</span>
 <span id="103">103</span>
-<span id="104">104</span>
-<span id="105">105</span>
-<span id="106">106</span>
-<span id="107">107</span>
-<span id="108">108</span>
-<span id="109">109</span>
-<span id="110">110</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">bytes</span>::<span class="ident">ToBytes</span>,
-    <span class="ident">config</span>::<span class="kw-2">*</span>,
-    <span class="ident">l2cap</span>::{<span class="ident">L2CAPState</span>, <span class="ident">L2CAPStateTx</span>},
-    <span class="ident">link</span>::{
-        <span class="ident">data</span>::{<span class="ident">Llid</span>, <span class="ident">Pdu</span>},
-        <span class="ident">llcp</span>::<span class="ident">ControlPdu</span>,
-        <span class="ident">queue</span>::{<span class="ident">Consume</span>, <span class="ident">Consumer</span>, <span class="ident">Producer</span>},
-    },
-    <span class="ident">utils</span>::<span class="ident">HexSlice</span>,
-    <span class="ident">Error</span>,
-};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">l2cap</span>::{<span class="ident">L2CAPState</span>, <span class="ident">L2CAPStateTx</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::<span class="ident">data</span>::{<span class="ident">Llid</span>, <span class="ident">Pdu</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::<span class="ident">llcp</span>::<span class="ident">ControlPdu</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::<span class="ident">queue</span>::{<span class="ident">Consume</span>, <span class="ident">Consumer</span>, <span class="ident">Producer</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">bytes</span>::<span class="ident">ToBytes</span>, <span class="ident">config</span>::<span class="kw-2">*</span>, <span class="ident">utils</span>::<span class="ident">HexSlice</span>, <span class="ident">Error</span>};
 
 <span class="doccomment">/// Data channel packet processor.</span>
 <span class="doccomment">///</span>
@@ -220,4 +206,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>

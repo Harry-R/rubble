@@ -320,26 +320,16 @@
 <span id="320">320</span>
 <span id="321">321</span>
 <span id="322">322</span>
-<span id="323">323</span>
-<span id="324">324</span>
-<span id="325">325</span>
-<span id="326">326</span>
-<span id="327">327</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! ATT server implementation.</span>
 
-<span class="kw">use</span> {
-    <span class="kw">super</span>::{
-        <span class="ident">pdus</span>::{<span class="ident">AttPdu</span>, <span class="ident">ByGroupAttData</span>, <span class="ident">ByTypeAttData</span>, <span class="ident">ErrorCode</span>, <span class="ident">Opcode</span>},
-        <span class="ident">AttError</span>, <span class="ident">AttributeProvider</span>, <span class="ident">Handle</span>, <span class="ident">HandleRange</span>,
-    },
-    <span class="kw">crate</span>::{
-        <span class="ident">bytes</span>::{<span class="ident">ByteReader</span>, <span class="ident">FromBytes</span>, <span class="ident">ToBytes</span>},
-        <span class="ident">l2cap</span>::{<span class="ident">Protocol</span>, <span class="ident">ProtocolObj</span>, <span class="ident">Sender</span>},
-        <span class="ident">utils</span>::<span class="ident">HexSlice</span>,
-        <span class="ident">Error</span>,
-    },
+<span class="kw">use</span> <span class="kw">super</span>::{
+    <span class="ident">pdus</span>::{<span class="ident">AttPdu</span>, <span class="ident">ByGroupAttData</span>, <span class="ident">ByTypeAttData</span>, <span class="ident">ErrorCode</span>, <span class="ident">Opcode</span>},
+    <span class="ident">AttError</span>, <span class="ident">AttributeProvider</span>, <span class="ident">Handle</span>, <span class="ident">HandleRange</span>,
 };
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">bytes</span>::{<span class="ident">ByteReader</span>, <span class="ident">FromBytes</span>, <span class="ident">ToBytes</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">l2cap</span>::{<span class="ident">Protocol</span>, <span class="ident">ProtocolObj</span>, <span class="ident">Sender</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">utils</span>::<span class="ident">HexSlice</span>, <span class="ident">Error</span>};
 
 <span class="doccomment">/// An Attribute Protocol server providing read and write access to stored attributes.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">AttributeServer</span><span class="op">&lt;</span><span class="ident">A</span>: <span class="ident">AttributeProvider</span><span class="op">&gt;</span> {
@@ -654,4 +644,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>

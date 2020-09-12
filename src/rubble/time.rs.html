@@ -281,18 +281,14 @@
 <span id="281">281</span>
 <span id="282">282</span>
 <span id="283">283</span>
-<span id="284">284</span>
-<span id="285">285</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Time APIs for obtaining the current time and calculating with points in time and durations.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! These APIs are made for the BLE stack and are not meant to be general-purpose. The APIs here</span>
 <span class="doccomment">//! have microsecond resolution and use 32-bit arithmetic wherever possible.</span>
 
-<span class="kw">use</span> <span class="ident">core</span>::{
-    <span class="ident">fmt</span>,
-    <span class="ident">ops</span>::{<span class="ident">Add</span>, <span class="ident">AddAssign</span>, <span class="ident">Sub</span>, <span class="ident">SubAssign</span>},
-};
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">fmt</span>;
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">ops</span>::{<span class="ident">Add</span>, <span class="ident">AddAssign</span>, <span class="ident">Sub</span>, <span class="ident">SubAssign</span>};
 
 <span class="doccomment">/// A duration with microsecond resolution.</span>
 <span class="doccomment">///</span>
@@ -570,4 +566,4 @@
     <span class="kw">fn</span> <span class="ident">now</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instant</span>;
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

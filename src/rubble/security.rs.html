@@ -346,12 +346,6 @@
 <span id="346">346</span>
 <span id="347">347</span>
 <span id="348">348</span>
-<span id="349">349</span>
-<span id="350">350</span>
-<span id="351">351</span>
-<span id="352">352</span>
-<span id="353">353</span>
-<span id="354">354</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! The LE Security Manager protocol.</span>
 <span class="doccomment">//!</span>
@@ -450,16 +444,10 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! This feature is not related to encryption or authentication of connections.</span>
 
-<span class="kw">use</span> {
-    <span class="kw">crate</span>::{
-        <span class="ident">bytes</span>::<span class="kw-2">*</span>,
-        <span class="ident">l2cap</span>::{<span class="ident">Protocol</span>, <span class="ident">ProtocolObj</span>, <span class="ident">Sender</span>},
-        <span class="ident">utils</span>::<span class="ident">HexSlice</span>,
-        <span class="ident">Error</span>,
-    },
-    <span class="ident">bitflags</span>::<span class="ident">bitflags</span>,
-    <span class="ident">core</span>::<span class="ident">fmt</span>,
-};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">l2cap</span>::{<span class="ident">Protocol</span>, <span class="ident">ProtocolObj</span>, <span class="ident">Sender</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">bytes</span>::<span class="kw-2">*</span>, <span class="ident">utils</span>::<span class="ident">HexSlice</span>, <span class="ident">Error</span>};
+<span class="kw">use</span> <span class="ident">bitflags</span>::<span class="ident">bitflags</span>;
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">fmt</span>;
 
 <span class="doccomment">/// Supported security levels.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SecurityLevel</span> {
@@ -708,4 +696,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

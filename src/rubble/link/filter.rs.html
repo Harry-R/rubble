@@ -111,15 +111,11 @@
 <span id="111">111</span>
 <span id="112">112</span>
 <span id="113">113</span>
-<span id="114">114</span>
-<span id="115">115</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Link-Layer Device Filtering.</span>
 
-<span class="kw">use</span> {
-    <span class="kw">super</span>::<span class="ident">DeviceAddress</span>,
-    <span class="ident">core</span>::{<span class="ident">iter</span>, <span class="ident">slice</span>},
-};
+<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">DeviceAddress</span>;
+<span class="kw">use</span> <span class="ident">core</span>::{<span class="ident">iter</span>, <span class="ident">slice</span>};
 
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">AddressFilter</span> {
     <span class="kw">fn</span> <span class="ident">matches</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">address</span>: <span class="ident">DeviceAddress</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
@@ -230,4 +226,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>

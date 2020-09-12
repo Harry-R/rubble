@@ -566,17 +566,6 @@
 <span id="566">566</span>
 <span id="567">567</span>
 <span id="568">568</span>
-<span id="569">569</span>
-<span id="570">570</span>
-<span id="571">571</span>
-<span id="572">572</span>
-<span id="573">573</span>
-<span id="574">574</span>
-<span id="575">575</span>
-<span id="576">576</span>
-<span id="577">577</span>
-<span id="578">578</span>
-<span id="579">579</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! The Logical Link Control and Adaptation Protocol (L2CAP).</span>
 <span class="doccomment">//!</span>
@@ -603,25 +592,14 @@
 
 <span class="kw">mod</span> <span class="ident">signaling</span>;
 
-<span class="kw">use</span> {
-    <span class="self">self</span>::<span class="ident">signaling</span>::<span class="ident">SignalingState</span>,
-    <span class="kw">crate</span>::{
-        <span class="ident">att</span>::{<span class="self">self</span>, <span class="ident">AttributeProvider</span>, <span class="ident">AttributeServer</span>, <span class="ident">NoAttributes</span>},
-        <span class="ident">bytes</span>::<span class="kw-2">*</span>,
-        <span class="ident">link</span>::{
-            <span class="ident">data</span>::<span class="ident">Llid</span>,
-            <span class="ident">queue</span>::{<span class="ident">Consume</span>, <span class="ident">Producer</span>},
-            <span class="ident">MIN_DATA_PAYLOAD_BUF</span>,
-        },
-        <span class="ident">security</span>::{<span class="ident">NoSecurity</span>, <span class="ident">SecurityLevel</span>, <span class="ident">SecurityManager</span>},
-        <span class="ident">utils</span>::<span class="ident">HexSlice</span>,
-        <span class="ident">Error</span>,
-    },
-    <span class="ident">core</span>::{
-        <span class="ident">fmt</span>,
-        <span class="ident">ops</span>::{<span class="ident">Deref</span>, <span class="ident">DerefMut</span>},
-    },
-};
+<span class="kw">use</span> <span class="self">self</span>::<span class="ident">signaling</span>::<span class="ident">SignalingState</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">att</span>::{<span class="self">self</span>, <span class="ident">AttributeProvider</span>, <span class="ident">AttributeServer</span>, <span class="ident">NoAttributes</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::<span class="ident">queue</span>::{<span class="ident">Consume</span>, <span class="ident">Producer</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::{<span class="ident">data</span>::<span class="ident">Llid</span>, <span class="ident">MIN_DATA_PAYLOAD_BUF</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">security</span>::{<span class="ident">NoSecurity</span>, <span class="ident">SecurityLevel</span>, <span class="ident">SecurityManager</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">bytes</span>::<span class="kw-2">*</span>, <span class="ident">utils</span>::<span class="ident">HexSlice</span>, <span class="ident">Error</span>};
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">fmt</span>;
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">ops</span>::{<span class="ident">Deref</span>, <span class="ident">DerefMut</span>};
 
 <span class="doccomment">/// An L2CAP channel identifier (CID).</span>
 <span class="doccomment">///</span>
@@ -1158,4 +1136,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>

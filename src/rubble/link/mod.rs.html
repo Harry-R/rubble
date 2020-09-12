@@ -593,16 +593,6 @@
 <span id="593">593</span>
 <span id="594">594</span>
 <span id="595">595</span>
-<span id="596">596</span>
-<span id="597">597</span>
-<span id="598">598</span>
-<span id="599">599</span>
-<span id="600">600</span>
-<span id="601">601</span>
-<span id="602">602</span>
-<span id="603">603</span>
-<span id="604">604</span>
-<span id="605">605</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Link-Layer.</span>
 <span class="doccomment">//!</span>
@@ -743,21 +733,11 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">features</span>::<span class="kw-2">*</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">responder</span>::<span class="kw-2">*</span>;
 
-<span class="kw">use</span> {
-    <span class="self">self</span>::{
-        <span class="ident">ad_structure</span>::<span class="ident">AdStructure</span>,
-        <span class="ident">advertising</span>::{<span class="ident">Pdu</span>, <span class="ident">PduBuf</span>},
-        <span class="ident">seq_num</span>::<span class="ident">SeqNum</span>,
-    },
-    <span class="kw">crate</span>::{
-        <span class="ident">bytes</span>::<span class="ident">ByteReader</span>,
-        <span class="ident">config</span>::<span class="kw-2">*</span>,
-        <span class="ident">phy</span>::{<span class="ident">AdvertisingChannel</span>, <span class="ident">DataChannel</span>},
-        <span class="ident">time</span>::{<span class="ident">Duration</span>, <span class="ident">Instant</span>, <span class="ident">Timer</span>},
-        <span class="ident">utils</span>::<span class="ident">HexSlice</span>,
-        <span class="ident">Error</span>,
-    },
-};
+<span class="kw">use</span> <span class="self">self</span>::<span class="ident">advertising</span>::{<span class="ident">Pdu</span>, <span class="ident">PduBuf</span>};
+<span class="kw">use</span> <span class="self">self</span>::{<span class="ident">ad_structure</span>::<span class="ident">AdStructure</span>, <span class="ident">seq_num</span>::<span class="ident">SeqNum</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">phy</span>::{<span class="ident">AdvertisingChannel</span>, <span class="ident">DataChannel</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">time</span>::{<span class="ident">Duration</span>, <span class="ident">Instant</span>, <span class="ident">Timer</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">bytes</span>::<span class="ident">ByteReader</span>, <span class="ident">config</span>::<span class="kw-2">*</span>, <span class="ident">utils</span>::<span class="ident">HexSlice</span>, <span class="ident">Error</span>};
 
 <span class="doccomment">/// The CRC polynomial to use for CRC24 generation.</span>
 <span class="doccomment">///</span>
@@ -1210,4 +1190,4 @@
     );
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>

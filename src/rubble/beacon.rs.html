@@ -155,33 +155,17 @@
 <span id="155">155</span>
 <span id="156">156</span>
 <span id="157">157</span>
-<span id="158">158</span>
-<span id="159">159</span>
-<span id="160">160</span>
-<span id="161">161</span>
-<span id="162">162</span>
-<span id="163">163</span>
-<span id="164">164</span>
-<span id="165">165</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! BLE beacon support, without dealing with Link-Layer stuff.</span>
 
-<span class="kw">use</span> {
-    <span class="kw">super</span>::{
-        <span class="ident">link</span>::{
-            <span class="ident">ad_structure</span>::<span class="ident">AdStructure</span>,
-            <span class="ident">advertising</span>::{<span class="ident">Header</span>, <span class="ident">Pdu</span>, <span class="ident">PduBuf</span>},
-            <span class="ident">filter</span>::{<span class="self">self</span>, <span class="ident">AddressFilter</span>, <span class="ident">ScanFilter</span>},
-            <span class="ident">Cmd</span>, <span class="ident">DeviceAddress</span>, <span class="ident">NextUpdate</span>, <span class="ident">RadioCmd</span>, <span class="ident">Transmitter</span>,
-        },
-        <span class="ident">phy</span>::<span class="ident">AdvertisingChannel</span>,
-    },
-    <span class="kw">crate</span>::{
-        <span class="ident">bytes</span>::<span class="kw-2">*</span>,
-        <span class="ident">time</span>::{<span class="ident">Duration</span>, <span class="ident">Instant</span>},
-        <span class="ident">Error</span>,
-    },
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::<span class="ident">advertising</span>::{<span class="ident">Header</span>, <span class="ident">Pdu</span>, <span class="ident">PduBuf</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::<span class="ident">filter</span>::{<span class="self">self</span>, <span class="ident">AddressFilter</span>, <span class="ident">ScanFilter</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::{
+    <span class="ident">ad_structure</span>::<span class="ident">AdStructure</span>, <span class="ident">Cmd</span>, <span class="ident">DeviceAddress</span>, <span class="ident">NextUpdate</span>, <span class="ident">RadioCmd</span>, <span class="ident">Transmitter</span>,
 };
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">phy</span>::<span class="ident">AdvertisingChannel</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">time</span>::{<span class="ident">Duration</span>, <span class="ident">Instant</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">bytes</span>::<span class="kw-2">*</span>, <span class="ident">Error</span>};
 
 <span class="doccomment">/// A BLE beacon.</span>
 <span class="doccomment">///</span>
@@ -330,4 +314,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

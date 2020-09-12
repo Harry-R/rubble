@@ -191,8 +191,6 @@
 <span id="191">191</span>
 <span id="192">192</span>
 <span id="193">193</span>
-<span id="194">194</span>
-<span id="195">195</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Generic `Timer` implementation that works with all 3 timers on the chip.</span>
 
@@ -208,12 +206,10 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;52840&quot;</span>)]</span>
 <span class="kw">use</span> <span class="ident">nrf52840_hal</span>::<span class="ident">pac</span>;
 
-<span class="kw">use</span> {
-    <span class="ident">core</span>::<span class="ident">mem</span>,
-    <span class="ident">rubble</span>::{
-        <span class="ident">link</span>::<span class="ident">NextUpdate</span>,
-        <span class="ident">time</span>::{<span class="ident">Instant</span>, <span class="ident">Timer</span>},
-    },
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">mem</span>;
+<span class="kw">use</span> <span class="ident">rubble</span>::{
+    <span class="ident">link</span>::<span class="ident">NextUpdate</span>,
+    <span class="ident">time</span>::{<span class="ident">Instant</span>, <span class="ident">Timer</span>},
 };
 
 <span class="doccomment">/// Implements Rubble&#39;s `Timer` trait for the timers on the nRF chip.</span>
@@ -390,4 +386,4 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;51&quot;</span>)]</span>
 <span class="macro">impl_timer</span><span class="macro">!</span>(<span class="ident">pac</span>::<span class="ident">TIMER0</span>);
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble_nrf5x";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "rubble_nrf5x";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

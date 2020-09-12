@@ -473,26 +473,12 @@
 <span id="473">473</span>
 <span id="474">474</span>
 <span id="475">475</span>
-<span id="476">476</span>
-<span id="477">477</span>
-<span id="478">478</span>
-<span id="479">479</span>
-<span id="480">480</span>
-<span id="481">481</span>
-<span id="482">482</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Defines packet structures used by the Link Layer Control Protocol.</span>
 
-<span class="kw">use</span> {
-    <span class="kw">crate</span>::{
-        <span class="ident">bytes</span>::<span class="kw-2">*</span>,
-        <span class="ident">link</span>::{<span class="ident">channel_map</span>::<span class="ident">ChannelMap</span>, <span class="ident">comp_id</span>::<span class="ident">CompanyId</span>, <span class="ident">features</span>::<span class="ident">FeatureSet</span>},
-        <span class="ident">time</span>::<span class="ident">Duration</span>,
-        <span class="ident">utils</span>::<span class="ident">Hex</span>,
-        <span class="ident">Error</span>,
-    },
-    <span class="ident">core</span>::{<span class="ident">cmp</span>, <span class="ident">convert</span>::<span class="ident">TryInto</span>},
-};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">link</span>::{<span class="ident">channel_map</span>::<span class="ident">ChannelMap</span>, <span class="ident">comp_id</span>::<span class="ident">CompanyId</span>, <span class="ident">features</span>::<span class="ident">FeatureSet</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">bytes</span>::<span class="kw-2">*</span>, <span class="ident">time</span>::<span class="ident">Duration</span>, <span class="ident">utils</span>::<span class="ident">Hex</span>, <span class="ident">Error</span>};
+<span class="kw">use</span> <span class="ident">core</span>::{<span class="ident">cmp</span>, <span class="ident">convert</span>::<span class="ident">TryInto</span>};
 
 <span class="doccomment">/// A connection parameter update request or response (`LL_CONNECTION_PARAM_REQ`/</span>
 <span class="doccomment">/// `LL_CONNECTION_PARAM_RSP`).</span>
@@ -964,4 +950,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>

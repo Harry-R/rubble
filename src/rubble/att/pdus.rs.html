@@ -675,16 +675,12 @@
 <span id="675">675</span>
 <span id="676">676</span>
 <span id="677">677</span>
-<span id="678">678</span>
-<span id="679">679</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Packets and types used in the ATT protocol.</span>
 
-<span class="kw">use</span> {
-    <span class="kw">super</span>::{<span class="ident">AttUuid</span>, <span class="ident">Handle</span>, <span class="ident">RawHandleRange</span>},
-    <span class="kw">crate</span>::{<span class="ident">bytes</span>::<span class="kw-2">*</span>, <span class="ident">utils</span>::<span class="ident">HexSlice</span>, <span class="ident">Error</span>},
-    <span class="ident">core</span>::<span class="ident">convert</span>::<span class="ident">TryInto</span>,
-};
+<span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">AttUuid</span>, <span class="ident">Handle</span>, <span class="ident">RawHandleRange</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">bytes</span>::<span class="kw-2">*</span>, <span class="ident">utils</span>::<span class="ident">HexSlice</span>, <span class="ident">Error</span>};
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">convert</span>::<span class="ident">TryInto</span>;
 
 <span class="macro">enum_with_unknown</span><span class="macro">!</span> {
     <span class="doccomment">/// Error codes that can be sent from the ATT server to the client in response to a request.</span>
@@ -1358,4 +1354,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "rubble";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
